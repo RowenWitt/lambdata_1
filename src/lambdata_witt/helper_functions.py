@@ -24,7 +24,7 @@ class NullCount:
 
 class TrainTest:
     def __init__(self):
-        return
+        return 
 
     def TrainTestSplit(df, frac):
         a = df
@@ -35,3 +35,4 @@ class TrainTest:
 
         return [print(train), print(test)]
         
+
