@@ -7,26 +7,25 @@ data = {'col1':['a','b','c','d','e','f',float('nan')], 'col2':['Bird','Cow',floa
 test_df = pd.DataFrame(data=data)
 
 
-# def null_count(df):
-#     count = pd.isna(df).sum().sum()
-#     return count
-#     #Was this meant to be two for loops?
 
 class NullCount:
+    """Simple null counter class on input df or list"""
     def __init__(self):
-        #import pandas as pd
         return
 
     def NullCounter(df):
+        """Null counter function"""
         count = pd.isna(df).sum().sum()
         return count
 
 
 class TrainTest:
+    """A simple train-test splitter using sample"""
     def __init__(self):
         return 
 
     def TrainTestSplit(df, frac):
+        """Train-test split function"""
         a = df
         b = float(frac)
         print(b)
@@ -36,3 +35,20 @@ class TrainTest:
         return [print(train), print(test)]
         
 
+class Randomize:
+    """Input dataframe randomizer, need to 2-d randomize on 1-dtype dfs"""
+    def __init__(self):
+        return 'Instantiation, successful'
+
+    def Randomizer(df, seed):
+        """Because of different dtypes columns don't 2-d randomize"""
+        cols = test_df.columns
+        a = df
+        b = int(seed)
+        c = []
+        for i in df.columns:
+            z = (df[i].sample(frac=1,random_state=b,axis=0))
+            c.append(list(z))
+        nc = {i: c[i] for i in range(0, len(c))}
+        d = pd.DataFrame(nc)
+        return print(d)
