@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import random
+import pytest
 
 test_list = [1,2,3,4,float('NAN')]
 data = {'col1':['a','b','c','d','e','f',float('nan')], 'col2':['Bird','Cow',float('nan'),'Platypus','Giraffe','Zebra','Monkey'],'col3':[1,2,3,4,5,6,7]}
@@ -17,6 +18,11 @@ class NullCount:
         """Null counter function"""
         count = pd.isna(df).sum().sum()
         return count
+
+    def test_NullCounter():
+    """Testing null counter function"""
+    test_df_nulls = pd.DataFrame(np.nan, index=[0,1,2,3,4,5], columns=['One','Two'])
+    assert hf.NullCount.NullCounter(test_df_nulls) == 12
 
 
 class TrainTest:
