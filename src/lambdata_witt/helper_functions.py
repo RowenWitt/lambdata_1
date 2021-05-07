@@ -51,4 +51,4 @@ class Randomize:
             c.append(list(z))
         nc = {i: c[i] for i in range(0, len(c))}
         d = pd.DataFrame(nc)
-        return print(d)
+        return d
